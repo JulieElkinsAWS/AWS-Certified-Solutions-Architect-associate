@@ -1,6 +1,6 @@
-# AWS-Certified-Solutions-Architect-associate
+# AWS-CAWS Certified-Solutions-Architect-associate
 
-<b>Study group<b>
+#Study group
 And then I am also building out a study group for the AWS Certified Solutions Architect associate exam. These are just my notes that I have been building since August 2018 and also notes I am sharing with the She Builds (one of the AWS Education Programs) community.
 
 All of this is a work in progress, and I will be adding to this doc hopefully daily. Please feel free to reach out (@julielk) with recommendations or what worked best for you. I love hearing your success stories along with the training that worked for your learning style. Remember, training is personal! But I am trying to create a one source for AWS training to help everyone, no matter your learning style.
@@ -55,11 +55,7 @@ So what is AWS global infrastructure? As we just said, AWS created their global 
 
 And AWS is designed to have multiple Regions, multiple AZs, and multiple edge locations around the world. The AWS global infrastructure is made up of AWS Regions around the world - and on top of this global infrastructure, we have high level services.
 
-
-
 So we have a level of compute and examples of compute are EC2 and Lambda, then we also have a level of storage like S3 and EFS, and then we also have a level of databases, so RDS Aurora, DDB, etc. And we will cover all of these services in this studt group. So as you can see we have multiple levels of different services on top of the AWS global infrastructure and lets cover the global infrastructure a bit more bc you will see questions on your exam relating to these.
-
-
 
 So what is an AWS region, AWS AZ, and Edge location?
 
@@ -80,8 +76,6 @@ Moving on from AWS as cloud computing, the AWS global infrastructure, we will co
 Share Responsibility Model
 What is the shared responsibility model? Well, The Shared Responsibility Model - is how AWS provides clarity around which areas of systems security are theirs, and which are owned by the us, the customer. AWS provides us this shared responsibility model so we are clear which elements of the infrastructure it manages and what elements we are responsible for managing.
 
-
-
 At a very high level, AWS is responsible for the security of the cloud, and we are responsible for the security of our data, applications, and so on in the cloud.
 
 In this diagram, the global infrastructure is on the bottom and then different service levels on top of that global infrastructure. Underneath the global infrastructure are the Regions, AZ, and edge locations around the world. AWS manages all of this, the hardware, the security, and so on for the global infrastructure.
@@ -94,10 +88,6 @@ AWS handles the provisioning and the security, compute, networking storage etc n
 
 But now this is where our responsibility comes in. So we are going to be responsible for the operating system and upwards.
 
-
-
-
-
 So that would be things like client side data encryption integrity, and authentication, server side encryption, and protecting the network traffic. And that includes encrypting your data, using SSL certificates, and so on. We are responsible for all of this as well as the operating system and the network and firewall configurations. We are responsible for our application, and definitely our identity and access management. So we allow people to have certain access to our account and the services in that account. And we will be talking about how to do this in a later section with IAM. We are also responsible for our customer data, securing that data and definitely backups of that data.
 
 AWS Well-Architected Framework
@@ -106,8 +96,6 @@ https://www.youtube.com/watch?v=CeceqWuZ0Cg&list=PLAJWTI4ZLaBVGQiPxLMpe6BAg5s5-S
 Lets also check out the AWS Well Architected Framework, so what is the AWS Well Architected Framework? Some people skip this part but it is critical to get a solid understanding to help you design more resilient, highly available, cost optimized environments.
 
 The AWS Well Architected Framework is best practices and core strategies for architecting systems in AWS. It helps you design, build and operate reliable, secure, efficient and cost effective systems that will increase your likelihood of success. And AWS has based this on six pillars : operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability.
-
-
 
 Get familiar with the design principles:
 
@@ -215,11 +203,7 @@ So what do you think AWS means when they label a service as public or private? W
 
 So what is an AWS public service? Well it is a service that can be connected to from anywhere there is an internet connection.
 
-
-
 Let's look at a diagram, so inside of AWS we have an AWS public zone and this public zone can communicate openly with the public internet. And AWS public services sit inside this public zone. This is not the public internet ----- remember AWS has its own network and the AWS public zone sits inside AWS but it sits adjacent or sits beside the public internet. And inside of aws, and inside of the AWS public zone is a network that is attached directly to the public internet. So any AWS service that is considered a public service sits and runs from this public zone with the network attached to the open internet. An example of an AWS public service is S3, so when users are connecting to an S3 bucket they are connecting through the public internet.
-
-
 
 Now what is an AWS private service? Well it is a private AWS service that lives inside the AWS private zone. And you will see it has no direct connection to the open internet or to the AWS public zone. And inside the aws private zone we can create an isolated env like a VPC or create an EC2 instance and by default it is completely isolated. But we can add permissions for our EC2 instance or for our VPC to access the public zone or the public internet. We simply have to configure the routing or make the instance public and we will be going much deeper into this later. And by default the only services that can access the services inside the private zone are the services inside the private zone. By default there are no permissions for the private zone except your local routes.
 
