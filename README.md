@@ -1,18 +1,18 @@
 # AWS-CAWS Certified-Solutions-Architect-associate
 
-#Study group
+# Study group
 And then I am also building out a study group for the AWS Certified Solutions Architect associate exam. These are just my notes that I have been building since August 2018 and also notes I am sharing with the She Builds (one of the AWS Education Programs) community.
 
 All of this is a work in progress, and I will be adding to this doc hopefully daily. Please feel free to reach out (@julielk) with recommendations or what worked best for you. I love hearing your success stories along with the training that worked for your learning style. Remember, training is personal! But I am trying to create a one source for AWS training to help everyone, no matter your learning style.
 
-STUDY GROUP covering fundamentals starts here:
+# STUDY GROUP covering fundamentals starts here:
 HI and welcome the study group for the AWS Certified Solutions Architect certification exam. This study group will not only prepare you to pass the newly released update AWS Certified Solutions Architect, but it will also help you prepare to work as a solutions architect in the real world.
 
 You do not need any previous AWS knowledge, but some will help.
 
 We will start this studygroup with the AWS Fundamentals, and this will be a great refresher or introduction for students that do not have a lot of experience. As we make our way through the content, we will be increasing your skills and confidence because the study material contains both AWS theory, practical demonstrations, and hands-on labs he;ping you to prepare for the certification exam and also get real-world hands-on experience.
 
-The Exam Blue Print & Slack Community
+# The Exam Blue Print & Slack Community
 
 https://aws.amazon.com/certification/certified-solutions-architect-associate/
 
@@ -26,7 +26,7 @@ If you have never taken an AWS certification exam, usually you will see two corr
 
 Ok let's get started with our first lesson of AWS fundamentals, cloud computing and AWS.
 
-What is AWS? Cloud Computing?
+# What is AWS? Cloud Computing?
 Lesson Links:
 
 AWS Website used in this lesson https://www.infrastructure.aws/
@@ -40,7 +40,8 @@ The second criteria is that cloud computing needs to have network access to acce
 The third criteria is that cloud computing needs resource pooling. So what is resource pooling? Well as we will see in this study group, AWS provides pooled resources to serve multiple different AWS customers. So AWS has thousands of servers, databases, and so on that we can on-demand provision and build in our own environment. And these pooled resources are available to me, to you, and to others as well. But another part of this criteria that we have to meet is that we do not know the exact location of these pooled resources and that is okay. For example, when you spin up an EC2 instance you can select the Region, but AWS is allowed to choose any data center in that AWS Region. And we will talk more about aws regions in a few minutes. So AWS procures multiple resources for their aws customers so we are talking about 1000s to make sure they are using economies of scale and you will hear a lot about economies of scale in cost optimization but economies of scale allows AWS with the larger scale of resources, to offer economies at scale to their customers which means that AWS can pass along savings to their customers while also providing customers the resources needed to scale and grow.
 The fourth criteria that cloud computing needs is elasticity. Elasticity is the ability to scale with demand. So as your demand increases you can scale up your AWS resources, and then when that demand decreases you can scale your resources back down. AWS provides elasticity.
 The fifth and last criteria that AWS must meet to be considered cloud computing is that the resource usage in the AWS accounts can be monitored and billed. So with AWS we are no longer pre-provisioning, procuring your servers, storage, compute, etc. You no longer have to estimate your demands, because with AWS we are not only using services that are monitored for usage and then are billed, but we are also actually scaling those resources to meet your demand instead of being over or under provisioned. And the biggest cost optimization benefit is that we only pay for what we use with AWS cloud computing.
-AWS Global Infrastructure:
+
+# AWS Global Infrastructure:
 https://www.youtube.com/watch?v=gH46jrFfiCc&list=PLAJWTI4ZLaBVGQiPxLMpe6BAg5s5-SgbB&index=2
 
 So how does AWS do this? How do they provide such amazing cloud computing? Well, AWS offers a global infrastructure which is a collection of smaller groupings of infrastructure that is connected by a global high speed network. And this global infrastructure allows us to design systems that are resilient and highly available. AWS offers globally resilient services, regional resiliency services, and also zone resilient services to build a highly available, resilient, fault tolerant system.
@@ -65,15 +66,15 @@ And AWS also has over 50 AZ. An AZ is one or more data centers with redundant po
 
 And an AWS edge location again is a global service and it is an endpoint for AWS that is used for caching content, and the AWS content delivery network or CDN is CloudFront. And we will cover CloudFront in much more detail throughout the study group, but basically what CloudFront offers is, if a user requests certain information, that information is cached at the edge location, so the next time another user requests that same information that info is already available and delivered to the user much faster then if you had to go all the way back to the database and search for that specific info. Netflix uses edge locations to store content as close to their customers as possible so customers get very low latency when requesting certain movies and shows. The further the data that is being requested is located from customers, the slower the transfer of that data becomes. And AWS has over 150 edge locations around the world.
 
-EXAM TIP: Make sure you understand the differences between Regions, AZs, and edge locations bc you will most likely see a question on these on your exam.
+# EXAM TIP: Make sure you understand the differences between Regions, AZs, and edge locations bc you will most likely see a question on these on your exam.
 
-Shared Responsibility Model and Well-Architected Framework
+# Shared Responsibility Model and Well-Architected Framework
 
 Lesson link:https://aws.amazon.com/architecture/well-architected/ and https://aws.amazon.com/architecture/well-architected/
 
 Moving on from AWS as cloud computing, the AWS global infrastructure, we will continue a step farther and discuss the shared responsibility model and also the AWS Well-Architected Framework.
 
-Share Responsibility Model
+# Share Responsibility Model
 What is the shared responsibility model? Well, The Shared Responsibility Model - is how AWS provides clarity around which areas of systems security are theirs, and which are owned by the us, the customer. AWS provides us this shared responsibility model so we are clear which elements of the infrastructure it manages and what elements we are responsible for managing.
 
 At a very high level, AWS is responsible for the security of the cloud, and we are responsible for the security of our data, applications, and so on in the cloud.
@@ -90,7 +91,7 @@ But now this is where our responsibility comes in. So we are going to be respons
 
 So that would be things like client side data encryption integrity, and authentication, server side encryption, and protecting the network traffic. And that includes encrypting your data, using SSL certificates, and so on. We are responsible for all of this as well as the operating system and the network and firewall configurations. We are responsible for our application, and definitely our identity and access management. So we allow people to have certain access to our account and the services in that account. And we will be talking about how to do this in a later section with IAM. We are also responsible for our customer data, securing that data and definitely backups of that data.
 
-AWS Well-Architected Framework
+# AWS Well-Architected Framework
 https://www.youtube.com/watch?v=CeceqWuZ0Cg&list=PLAJWTI4ZLaBVGQiPxLMpe6BAg5s5-SgbB&index=1
 
 Lets also check out the AWS Well Architected Framework, so what is the AWS Well Architected Framework? Some people skip this part but it is critical to get a solid understanding to help you design more resilient, highly available, cost optimized environments.
@@ -106,7 +107,7 @@ Allow for evolutionary changes and use data to make the needed changes
 Improve through gamedays, test runs allow you to see you systems at prod
 You may be asking why this is important, why are we discussing cloud computing, the shared responsibility model, and the well architected framework. The reason is that this gives you a good solid basis for understanding AWS, and it will benefit you to take the time to learn and understand these concepts going into your exam.
 
-AWS Cost Optimization
+# AWS Cost Optimization
 
 AWS recently added more cost optimization to the SAA-CO2 exam, so I wanted to add a brief intro to cost optimization and we will also be discussing cost optimization throughout this study group.
 
@@ -140,7 +141,7 @@ Another huge best practice is to enable your teams to design their architecture 
 
 So as solution architects we have to understand and implement the framework pillars and best practices throughout our infrastructure. You will see a huge change in your org when your operations teams and your finance teams are working towards the same goals.
 
-High Availability, Fault Tolerance, Disaster Recovery
+# High Availability, Fault Tolerance, Disaster Recovery
 High Availability (HA), Fault Tolerance (FT), and Disaster Recovery (DR)
 
 High Availability (HA), Fault-Tolerance (FT) and Disaster Recovery (DR) are three essential concepts to understand for every Solutions Architect.
@@ -161,7 +162,7 @@ And having a DR plan is crucial because the worst time to try to recover from a 
 
 EXAM TIP: Throughout this study group, we will continue discussing these and how different AWS services are great options for one, both, or all, but for the exam make sure you know how to best recover for different scenarios and the best choice for that recovery using different AWS services.
 
-Elasticity and Scaling
+# Elasticity and Scaling
 What is scaling?
 
 It is the ability of a system to scale, so increasing or decreasing the load placed upon that system. And systems scale when they need to grow or shrink depending on the load. So when it scales we are adding or removing resources to and from a system. And in AWS, we have two ways to scale: vertical and horizontal.
@@ -178,11 +179,9 @@ Also, as far as cost optimization, this is usually less expensive because you ar
 
 Now let's cover Elasticity, what is it? It is an important topic to know and understand for the exam. Elasticity is using automation along with horizontal scaling to match capacity/supply with the demand. You will notice that demand is very rarely linear, it is usually increasing and decreasing, and using elasticity it allows our capacity to increase and decrease and meet that ever changing demand. And AWS provides launch configuration and auto scaling to scale out our systems to match that capacity to that demand, allowing our env to scale out adding additional resources as the demand increases and then when that demand decreases we can scale back in to smaller number of servers or even no servers which optimizes our env for performance efficiency, operational excellence, as well as cost optimization which are all pillars of the AWS Well-Architected Framework.
 
-EXAM TIP:
+# EXAM TIP:Vertical scaling is a LARGER size, horizontal scaling is more instances, and elasticity is using automation along with horizontal scaling to match our capacity to our demand.
 
-Vertical scaling is a LARGER size, horizontal scaling is more instances, and elasticity is using automation along with horizontal scaling to match our capacity to our demand.
-
-Public, Private, Multi, and Hybrid Environments
+# Public, Private, Multi, and Hybrid Environments
 
 So in an earlier video we discussed cloud computing and talked about what a cloud environment is, but as you can see we have different types of cloud environments.
 
@@ -196,7 +195,7 @@ And then that leads us into a hybrid cloud which is using the public cloud AND t
 
 I did not see any exam questions relating to this on my specific beta exam but I have heard others say they had questions on cloud envs so I did want to add this in.
 
-Public and Private AWS Services
+# Public and Private AWS Services
 Lesson links: https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html
 
 So what do you think AWS means when they label a service as public or private? Well, it is probably not what you are thinking. AWS determines whether a service is private or public by its network. And this is something I really struggled with when I was starting out.
@@ -207,12 +206,12 @@ Let's look at a diagram, so inside of AWS we have an AWS public zone and this pu
 
 Now what is an AWS private service? Well it is a private AWS service that lives inside the AWS private zone. And you will see it has no direct connection to the open internet or to the AWS public zone. And inside the aws private zone we can create an isolated env like a VPC or create an EC2 instance and by default it is completely isolated. But we can add permissions for our EC2 instance or for our VPC to access the public zone or the public internet. We simply have to configure the routing or make the instance public and we will be going much deeper into this later. And by default the only services that can access the services inside the private zone are the services inside the private zone. By default there are no permissions for the private zone except your local routes.
 
-EXAM TIP: In this study group, we will be discussing if AWS services are private or public and you may see some exam questions asking how to give a user or customer access to a specific aws service. And if you understand what makes a service a public aws service or a private aws service and how to design that connectivity then you will be able to confidently answer any questions you may see.
+# EXAM TIP: In this study group, we will be discussing if AWS services are private or public and you may see some exam questions asking how to give a user or customer access to a specific aws service. And if you understand what makes a service a public aws service or a private aws service and how to design that connectivity then you will be able to confidently answer any questions you may see.
 
-AWS VPC / AWS Infrastructure (high level overview)
+#AWS VPC / AWS Infrastructure (high level overview)
 In our Networking and Compute section for this study group, we will cover VPC and compute in deeper details, but I did want to add a high level overview of VPCs to the AWS Fundamentals section.
 
-EXAM TIP: Now for the certification exam you really need to understand VPCs and know how to build them. You will most likely get 5 to 6 questions on VPCs specifically.
+# EXAM TIP: Now for the certification exam you really need to understand VPCs and know how to build them. You will most likely get 5 to 6 questions on VPCs specifically.
 
 So what is a VPC? Well it is a virtual private cloud, so basically it is your very own virtual data center in the cloud. AWS allows us to provision our own VPC in a logically isolated section of AWS, and we can launch different resources and create our own virtual private network. We have complete control over this virtual networking env, and that even includes choosing our own IP address ranges, creating our own subnet, and configuring access with our route tables and network gateways. And we see in a later section, that we can create a public facing subnet for applications to have access to the internet, but also create private subnets with no internet access to secure our databases and our backend systems. And the VPC offers multiple different layers of security, so we have network access control lists (NACLs) and security groups that we configure to control who and what is allowed to access resources inside our VPC.
 
@@ -228,15 +227,15 @@ And remember we are going to cover all of these in a later section but I wanted 
 
 So our IGW then talks to our route tables and remember we configure our route tables with needed permissions for our account. This is part of the shared responsibility model that we are responsible for. Then the requested access is going to hit our NACLs and NACLs act like a firewall and are the first line of defense.
 
-EXAM TIP: One important tip for the exam is to know all about NACLs and security groups, especially that NACLs are stateless, and what stateless means is that you must add rules for all inbound and also outbound traffic for your VPC. Stateless simply means that the routes for the route tables only see rules one way, so if you add an inbound rule for your VPC, then you must also add an outbound rule to match your inbound rule. So you can add allow rules and also deny rules and another
+# EXAM TIP: One important tip for the exam is to know all about NACLs and security groups, especially that NACLs are stateless, and what stateless means is that you must add rules for all inbound and also outbound traffic for your VPC. Stateless simply means that the routes for the route tables only see rules one way, so if you add an inbound rule for your VPC, then you must also add an outbound rule to match your inbound rule. So you can add allow rules and also deny rules and another
 
-EXAM TIP: is that NACLs allow you to block/deny certain IP addresses on your network.
+# EXAM TIP: is that NACLs allow you to block/deny certain IP addresses on your network.
 
 Then we hit our second line of defense which are our security groups and another
 
-EXAM TIP: Security groups are stateful, and what that means is that any rule that you add to allow inbound traffic will automatically be allowed outbound, so you do not have to add specific outbound rules. Any traffic allowed in, will be allowed back out. And another
+# EXAM TIP: Security groups are stateful, and what that means is that any rule that you add to allow inbound traffic will automatically be allowed outbound, so you do not have to add specific outbound rules. Any traffic allowed in, will be allowed back out. And another
 
-EXAM TIP: is that you cannot deny or block specific IP addresses with security groups, only with NACLs.
+# EXAM TIP: is that you cannot deny or block specific IP addresses with security groups, only with NACLs.
 
 We also can create two different subnets, a private and public subnet.
 
@@ -272,11 +271,11 @@ So let's quickly do an intro to transitive peering bc it will most likely be on 
 
 Transitive peering with the transit gateway, and we will take a deeper dive into transit gateway, but transit gateway allows transitive peering, so all of the VPCs can communicate with each other.
 
-EXAM TIPS:
+# EXAM TIPS:
 
 So for the exam, remember that a VPC consists of IGW, route tables, NACLs, security groups, and subnets. You may see a question on the exam about 1 subnet = 1 AZ but you can have multiple AZs in one subnet. And you will most likely have questions regarding security groups being stateful and NACLs being stateless.
 
-AWS Accounts
+# AWS Accounts
 https://www.youtube.com/watch?v=rFHnZkx7nqY&list=PLAJWTI4ZLaBVGQiPxLMpe6BAg5s5-SgbB&index=3
 
 AWS Accounts are not only required to use AWS services, they are also one of the most important tools available to a solutions architect. AWS accounts may seem like a very basic understanding but what accounts are and how they work are crucial bc as a solutions architect you will encounter very simple systems operating in a single AWS account but you will also encounter more complex systems that use tens or even hundreds of aws accounts. So we have to understand AWS accounts.
@@ -301,7 +300,7 @@ When we are creating an AWS account, we have to enter credit card information an
 
 So AWS accounts are the way we access, build, and consume AWS services and our AWS account provides authentication for us to log in, authorization to perform actions in our account, like creating an S3 bucket or an Ec2 instance, and it also tracks our usage and creates a monthly bill.
 
-Create an AWS Account
+# Create an AWS Account
 Lesson links: https://portal.aws.amazon.com/billing/signup#/start
 
 Plus a blog post with a walk through: https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
@@ -319,7 +318,7 @@ A phone number where you can receive a phone call or text messages
 A valid credit card for our billing method. This credit card will only be used when there are charges in your aws account.
 Towards the end, you will have to pick a support plan. You can choose any plan but I usually choose the basic plan which is free. You can see that each plan provides different features that you may need in a real world env AND this is a great EXAM TIP here bc for the AWS certification exam you will need to understand the difference between each of these support plans.
 
-Securing Your Account Permissions
+# Securing Your Account Permissions
 Lesson Links:
 
 iOS Google Authenticator : https://apps.apple.com/au/app/google-authenticator/id388497605
@@ -350,7 +349,7 @@ Now we have assigned a virtual MFA to our AWS account and now our root user is m
 
 We will be creating new IAM users, specifically a new admin IIAM user that we will start using instead of our current account root user. That is AWS best practice to use the account root user for your account set up and then only for emergencies. Remember, the root user has full permissions to your aws account. Before we wrap up, another best practice is to enter alternate contacts for AWS to contact you and I always enter my personal info here bc it makes it easier for aws to contact you with any emergencies. There is also the option to add IAM users the ability and permissions to access billing reports, etc. This is a personal choice that you can decide to check the box or not. For my own account I do not want others having this access but again the choice is yours.
 
-Create a Billing Alarm
+# Create a Billing Alarm
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html
 
 https://www.youtube.com/watch?v=3peNAKB3VxA&list=PLAJWTI4ZLaBVGQiPxLMpe6BAg5s5-SgbB&index=36
@@ -375,7 +374,7 @@ RDS - 750 free hours
 Lambda - 1 million free requests per month, and so on.
 So make sure when you are designing your architecture that you understand the free tier usage is different for different services so make sure you have an understanding of what is needed and what is offered for free.
 
-IAM Intro
+# IAM Intro
 Identity and Access Management (IAM) is a core AWS service you will use as a Solutions Architect. IAM is what allows additional identities to be created within an AWS account - identities which can be given restricted levels of access.
 
 IAM identities start with no permissions on an AWS Account, but can be granted permissions (almost) up to those held by the Account Root User.
@@ -394,7 +393,7 @@ So on a high level overview, IAM acts as an ID Provider, or IDP, and it manages 
 
 Now as far as cost optimization for your AWS account, IAM is free to use, there is no cost, but there are limits to how many users, groups, and so on, you can create.
 
-EXAM TIP: For the exam, you may see some limitation questions on IAM limits, remember it is a global service, it is resilient. You can only have 5,000 users per account. And an IAM user can be a member of 10 groups.
+# EXAM TIP: For the exam, you may see some limitation questions on IAM limits, remember it is a global service, it is resilient. You can only have 5,000 users per account. And an IAM user can be a member of 10 groups.
 
 IAM provides identity federation so AWS allows authentication using AD, google, amazon, and facebook.
 It allows us to secure our AWS account using MFA.
@@ -406,7 +405,7 @@ It is a set of security statements that grant access or deny access to AWS resou
 An IAM policy consists of an IAM Policy Doc that is written in JSON.
 There are two types of IAM policies:
 
-AWS Managed Policy
+# AWS Managed Policy
 Inline Policy
 Both are the same as the policies we have been discussing but the management is different between the two types.
 
@@ -439,7 +438,7 @@ How it works: you allow an IAM role inside your AWS account to be assumed by an 
 
 IAM roles are also great for applications that need to access a database in your AWS account because users using a mobile application are most likely going to hundreds of thousands of users, and remember we have the 5,000 user per account limit. But we can use web identity federation and IAM roles for this situation. Most mobile apps allow you to sign in using FB, google, or amazon and the way this works is that our IAM role's trust policy trusts these identities from FB, google, and amazon and again they will then be able to assume that IAM role, they will be given temp sec creds, and then they will be allowed the permissions granted in the permission policy. And by using IAM roles the application has no hard coded creds stored in it which makes the app much more secure and also makes your resources secure as well. And it also uses the customer's existing accounts on amazon, fb, or google, so the user does not need to create a new account. EXAM TIP: You may see a question on your exam asking how to architect solutions for mobile apps and using Web ID Federation along with IAMroles is the way to do that.
 
-AWS Organizations
+# AWS Organizations
 AWS Organizations is an AWS product/service that allows larger business and smaller ones to manage AWS accounts with very little management overhead and in a cost effective way. Ok, great but what does this solve, how does it work?
 
 Well without AWS Org it can be difficult to organize and track and manage multiple AWS accounts. Imagine companies that have many AWS accounts. Most large organizations break up their AWS account into multiple AWS accounts: An AWS account for dev and test, one for production, one for security, etc. So in this case, each AWS account has their own IAM users, resources, and so on, but also a separate payment method, because remember each AWSaccount is tracked and billed for the services used to the credit card info you enter when you create the aws account.
@@ -496,7 +495,7 @@ So the Access Key ID is public and the Secret Access Key is private just like a 
 
 And that wraps up our AWS Fundamentals section. Next we will dive into a new section covering Network and Compute in AWS.
 
-Networking and compute
+# Networking and compute
 
 VPC Default Structure
 Hi and welcome to a new section on networking and compute and we are starting with Amazon VPCs, let's start off this section and look at the AWS default VPC that AWS provides for all their AWS accounts.
@@ -513,9 +512,7 @@ Each default comes with one VPC CIDR Range, which is a given range of IP address
 
 And with your VPC you can divide your network across the azs for resilience, so you can sub divide your VPC into subnets and subnets is short for sub network. Each default VPC is configured to have one subnet located in each AZ of that region. And each subnet in your default VPC uses part of the IP address range of the VPC CIDR. And each subnet's IP address range must be unique to the other subnet’s IP address range and also cannot overlap. So if one of your AZs fails, then that subnet in that failed AZ will also fail, but with the default VPC you have other subnets in other azs that are still operating.
 
-
-
-EXAM TIPS for default VPCs:
+# EXAM TIPS for default VPCs:
 
 You can only have one default VPC per region, it can be deleted and then recreated
 You can addIPv6 CIDR but you must enable your VPC for IPv6
@@ -524,6 +521,7 @@ And the local route is used to communicate between subnets inside your VPC
 The default VPC CIDR is always the same and designed and configured the same too 172.31.0.0/16 is the default VPC CIDR
 /20 for the subnets in each AZ in the region and subnets are assigned public IPv4 address, so they are all public subnets and will be in the aws public zone
 And each Default VPC will be provided, an IGW, SG, and NACL
+
 Networking Intro
 Lesson Links
 
