@@ -478,7 +478,7 @@ So when you enable SCPs on your AWS Org, AWS will apply a default policy called 
 Create an AWS Organization
 How to create an AWS Organization
 
-IAM Access Keys
+# IAM Access Keys
 So far in this content, we have only been dealing with AWS access using the console, but we can also access our AWS resources using the CLI and also access resources using apis, sdk, etc.
 
 However, unlike authenticating to the AWS management console, authentication with the CLI does not use our user name, password, and MFA. We authenticate with the CLI using IAM access keys, and like our username and password, access keys are also long term creds,
@@ -522,7 +522,7 @@ The default VPC CIDR is always the same and designed and configured the same too
 /20 for the subnets in each AZ in the region and subnets are assigned public IPv4 address, so they are all public subnets and will be in the aws public zone
 And each Default VPC will be provided, an IGW, SG, and NACL
 
-Networking Intro
+# Networking Intro
 Lesson Links
 
 https://www.iana.org/numbers
@@ -585,7 +585,7 @@ And the IPv4 networks are also represented by using the start address and a pref
 
 Double colons represent unneeded zeros, so ::/0 means all IPv6 addresses and you may see this on your exam but definitely in AWS.
 
-Subnets
+# Subnets
 Subnets are what services run from inside our VPC, and they are how we add structure and functionality to our VPCs, and remember that subnets are an AZ resilient feature of AWS.
 
 A subnet is a subnetwork of our VPC CIDR range. And it is created in one AZ, and because it runs in one AZ, if that AZ fails then so will our subnet and the services running inside the subnet. And this is why we need to design our infrastructure for high availability. EXAM TIP: that one subnet is in one AZ, and it can never be in more than the one AZ. But one AZ can have 0 and more subnets. The certification exam may try to trick you on this one, so remember 1 subnet = 1 AZ.
@@ -607,7 +607,7 @@ So if we should have 16 IP addresses, then we would only actually have 11 IP add
 
 Also subnets have a DHCP option set which stands for dynamic host control protocol. This is how computer devices receive their IP addresses automatically, and each VPC comes with one DHCP option set, and can only have one applied at a time, it can be changed BUT for the exam know if you need a new one you must create a new one, you can not edit your DHCP option set.
 
-Routing and Internet Gateway (IGW)
+# Routing and Internet Gateway (IGW)
 Every VPC has a VPC router that is highly available, and simply moves traffic from somewhere to somewhere else and it runs in all the AZ that your VPC uses. The router has a network interface in each subnet in your VPC and uses the Network+1 address we discussed. You never need to worry about this router, it just works and it's managed by AWS, and routes traffic between subnets in your VPC. We can control this router a bit by creating route tables and associate the route table with the subnet and add rules to allow traffic in and out of your subnets.
 
 Each VPC has a main route table (RT) associated with your subnets, so if you do not explicitly associate your RT with your subnet, then the VPC will use this main RT. A subnet can only have one RT associated with it at a time, but you can use one RT for many different subnets in your VPC.
@@ -620,7 +620,7 @@ IF you create a new IGW, you must attach it to the VPC, it is not automatically 
 
 The IGW does this by performing a type of NAT called static NAT, and how it works is that the IGW allocates a resource with a public IPv4 IP address. So when the data or packets leave that resource and pass through the IGW, the IGW switches the source IP address from the private IP address to the public IP address and sends the packet on. Then when the packet returns, it switches the destination address from the public IP address back to the private IP address.
 
-Network Access Control Lists (NACLs)
+# Network Access Control Lists (NACLs)
 Network Access Control Lists (NACLs) are a type of security filter (like firewalls) which can filter traffic as it enters or leaves a subnet. NACLs are attached to subnets and only filter data as it crosses the subnet boundary. NACLs are stateless and see initiation and response phases of a connection and 1 inbound and 1 outbound stream requiring two roles (one IN one OUT). You will most likely get a few questions on NACLs on your exam.
 
 And by default a default NACL is created for your default VPC associated with all subnets by default.
@@ -635,7 +635,7 @@ All IP communication is actually made up of two parts, the initiation part and a
 
 So with NACLs it is important to remember to add the ephemeral port range.
 
-EXAM TIPS:
+# EXAM TIPS:
 
 NACLs are Stateless
 NACLs only affect traffic crossing the subnet border, only applied to the subnet
@@ -644,7 +644,8 @@ NACLs only support IP, Networks, and Protocols, you can not add AWSresources or 
 Use NACLs with SGs to add an explicit deny
 One subnet is associated with one NACL
 NACLs are processed in ordered, so lowest number to highest and ending with the * which is for everything
-Security Groups
+
+# Security Groups
 SGs are another security feature of AWS, only unlike NACLs that are attached to the subnet, SGs are attached to the elastic network interface (ENI) of the AWS resources in the subnet. They also work differently than NACLS. SGs are assigned to the ENI of an AWS resource, so it sits at the boundary, per se, of the instance instead of the subnet.
 
 SGs also have inbound and outbound rules, but SGs are stateful. That means that if traffic is allowed in, then that traffic is automatically allowed back out. SGs see both the inbound and outbound traffic as part of the same stream. One big difference between SGs and NACLs is that SGs recognize AWS resources and you can add rules for these. For example, for an EC2 instance you could add:
@@ -653,7 +654,7 @@ The instance ID for that instance to allow traffic from the instance
 Rules for other SGs, or add a rule for the SG itself.
 SGs also have a hidden explicit deny which means that anything that is not explicitly allowed is denied. BUT for the exam make sure understand SGs cannot explicitly deny a certain IP address, like a NACL can. If you need to explicitly deny, then you need to use NACLs. You will probably see an exam question on this.
 
-EXAM TIPS:
+# EXAM TIPS:
 
 So when would you use NACLs and SGs?
 
@@ -668,10 +669,10 @@ We can also configure our custom VPC with a single assigned IPv6 /56 CIDR block.
 
 Custom VPCs also have fully provisioned DNS, and remember that is the Network +2 IP address. And for the exam you should remember to enableDNSHostnames, then your instances in your VPC will be given public DNS names. You should also choose enableDNSSupport to enable DNS resolution in your VPC. You may see questions relating to either on your exam.
 
-Bastion Hosts
+# Bastion Hosts
 I want to add a high level overview of bastion hosts, also known as jump boxes. We will be covering these under our EC2 instance, cloud compute section. A bastion host is simply an Ec2 instance in a public subnet inside a VPC. And they are a great security feature that can be used to allow incoming management connections into private resources in subnets. It is an inbound mgmt point and you can really tighten up what access is allowed with your RTs.
 
-NAT Gateways
+# NAT Gateways
 Network Address Translation (NAT) is the process of giving a private resource outgoing access to the internet. TIGW performs a type of NAT called static NAT by allocating a resource with a public IPv4 IP address. When the data or packets leave that resource and pass through the IGW, the IGW switches the source IP address from the private IP address to the public IP address. And then sends the packet on. When the packet returns, it switches the destination address from the public IP address back to the private IP address. So NAT gives a private CIDR range outgoing internet access and to the AWS public zone. And when private resources initiate traffic with a NAT Gateway, they can receive responses back in BUT outside traffic from the internet can not initiate traffic inbound.
 
 AWS provides us two ways to use NAT, using an EC2 instance or by using a NAT Gateway.
@@ -682,7 +683,7 @@ When the private instance sends data to the NAT GWY, it does so using the RT to 
 
 The NAT GWY allows multiple private addresses to masquerade behind it. By using the NAT Source address and then eventually the NAT GWY public IP address that the IGW gives it. So to give private instances access to the internet, you need both the NAT GW and the IGW to complete this and also to configure the routes for the route table.
 
-EXAM TIPS:
+# EXAM TIPS:
 
 NAT GWYs have to sit inside a public subnet bc it needs a public IP address
 NAT GWYs also need updated RTs to allow routing
@@ -696,10 +697,10 @@ The IPv6 instance can communicate with the public internet and the public intern
 
 With an egress-only gateway, the private instance in a private subnet can communicate with the internet, so it has a route outbound from the instance to the internet. And then that outbound traffic allows the inbound response. BUT with an egress-only gateway, the public internet cannot initiate traffic inbound to this private instance inside the private subnet. So it is an outgoing only version of an IGW for IPv6 instances. Outgoing only that is why it is called egress-only.
 
-VPC Peering
+# VPC Peering
 VPC peering is a way to link multiple VPCs together and allows direct communications between two isolated VPCs using their private IP addresses. VPC peers can span AWS accounts and also Regions, and the data shared is encrypted using the AWS global infrastructure.
 
-EXAM TIPS:
+# EXAM TIPS:
 
 Use NACLs and SGs to control access
 Why would we use VPC peering?
@@ -711,7 +712,7 @@ To meet requirement to split up an application into multiple isolated VPCs to li
 
 https://www.youtube.com/watch?v=6fhwoAwYrug&list=PLAJWTI4ZLaBVGQiPxLMpe6BAg5s5-SgbB&index=28
 
-VPC Endpoints
+# VPC Endpoints
 VPC endpoints are gateway objects we can create inside our VPC, sort of like IGW and NAT GWYs. They are used to allow instances inside a VPC to connect with AWS public services without the need of a gateway. An IGW or a NAT GWY is not needed. There are two types of endpoints that we need to know the the certification exam:
 
 Gateway Endpoints - A gateway endpoint is used for AWS public services, remember that some AWS services are public services and they sit inside the AWS public zone. Sometimes we want to connect to these public services like S3 or DynamoDB from a private instance or subnet that does not have access to the internet or a NAT GWY set up. Gateway endpoints can be restricted using policies, use routing and need an entry on the RT.
@@ -724,7 +725,7 @@ If you see any exam questions asking you to expose VPC services to multiple VPCs
 
 https://www.youtube.com/watch?v=iu0-o6hiPpI&list=PLAJWTI4ZLaBVGQiPxLMpe6BAg5s5-SgbB&index=27
 
-VPN
+# VPN
 I want to change the direction of building our custom VPC and talk about connectivity options between our AWS VPC and our on premises networks. AWS has a service, AWS VPN, and it is a service that lets us configure a hardware VPN which is a HA virtual private connection between our VPC and on premises networks. Virtual private networks, VPNs, use the public internet as a transit route for on premises to your VPC. VPNs offer a fully encrypted route from wherever your on premises network is located to your AWS VPC.
 
 So for the exam we need to understand architecture but also when we would want to use VPNs.
@@ -743,7 +744,8 @@ Performance can be limited by your customer gateway router
 VPNs offer encryption end to end
 VPN performance is variable bc it uses the internet so you can have latency issues
 You may get a Route propagation question: local route take priority, then longest prefix, static routes take priority, any routes from Direct Connect over BCP, static VPN routes, any VPN propagated in learned from BGP.
-Direct Connect
+
+# Direct Connect
 We just discussed hardware VPN connections. We also have another option to connect our on premises networks and our AWS VPC. And that is Direct Connect (DX). DX is a dedicated physical connection between your on premises network and AWS. Remember a VPN connection is a virtual private connection over the public internet.
 
 DX is a physical piece of fibre running between your on premises network and AWS's network. AWS has a number of direct connect locations that are distributed globally. To get a DX connection, you must have equipment located at one of the DX locations or a deal with a DX partner that already has equipment set up at one of the DX locations.
@@ -758,11 +760,7 @@ Private VIFs allow you to connect, it is a private connection, from on premises 
 
 So if we want to connect to multiple VPCs, we do not have to repeat the above steps, we can create a DX Gateway. It does have to be in the same account but can be in different Regions and the VPCs cannot have overlapping CIDRs. But when you connect to multiple VPCs, the VPCs using the DX gateway does not allow VPC peering with the other VPCs. It only allows connections back and forth between the on premises and individual VPC.
 
-
-
-
-
-EXAM TIPS:
+# EXAM TIPS:
 
 When you need speed and consistency choose DX because DX has dedicated connections that do not share speed or bandwidth
 DX runs over a private cable straight into the AWS network
@@ -779,7 +777,7 @@ Remember with your account structure you have defined metrics and goals to track
 
 Remember to enable Cost Explorer and use the AWS Billing and Cost Management dashboard to track your expenses and usage. Enable tagging and enforce tagging.
 
-EXAM TIPS:
+# EXAM TIPS:
 
 Make sure your EIPs are attached bc you are charged for EIPs not attached in your env
 Monitor your data transfer, most data transfer inside a VPC is free and data transferred out is charged.
