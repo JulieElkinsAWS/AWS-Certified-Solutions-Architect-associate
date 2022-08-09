@@ -1,4 +1,4 @@
-# AWS-CAWS Certified-Solutions-Architect-associate
+# AWS-Certified-Solutions-Architect-associate
 
 # Study group
 And then I am also building out a study group for the AWS Certified Solutions Architect associate exam. These are just my notes that I have been building since August 2018 and also notes I am sharing with the She Builds (one of the AWS Education Programs) community.
